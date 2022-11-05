@@ -432,8 +432,8 @@ class _AddNewFoodPageState extends State<AddNewFoodPage> {
   }
   Future<void> httprequest(String name)
   async {
-    dio.options.headers['x-app-id'] = env['APP_ID'];
-    dio.options.headers["x-app-key"] = env['APP_KEY'];
+    dio.options.headers['x-app-id'] = '4d33df32'; // env['APP_ID'];
+    dio.options.headers["x-app-key"] = '9ce5698f2b64d2c5089fac2d8552aab2'; // env['APP_KEY'];
     try{
       response = await dio.post(
           'https://trackapi.nutritionix.com/v2/natural/nutrients',

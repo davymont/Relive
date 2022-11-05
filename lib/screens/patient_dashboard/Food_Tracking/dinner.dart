@@ -346,17 +346,17 @@ class BarChartSample1State extends State<BarChartSample1> {
       x: x,
       barRods: [
         BarChartRodData(
-          y: isTouched ? y + 1 : y,
-          colors: isTouched ? [Colors.yellow] : [barColor],
+          fromY: isTouched ? y + 1 : y,
+          color: isTouched ? Colors.yellow : barColor,
           width: width,
           borderSide: isTouched
               ? const BorderSide(color: Colors.yellow, width: 1)
               : const BorderSide(color: Colors.white, width: 0),
           backDrawRodData: BackgroundBarChartRodData(
             show: true,
-            y: 100,
-            colors: [barBackgroundColor],
-          ),
+            fromY: 100,
+            color: barBackgroundColor,
+          ), toY: 100000,
         ),
       ],
       showingTooltipIndicators: showTooltips,
@@ -420,7 +420,7 @@ class BarChartSample1State extends State<BarChartSample1> {
                 ),
                 children: <TextSpan>[
                   TextSpan(
-                    text: (rod.y - 1).toString() + '%',
+                    text: (rod.fromY - 1).toString() + '%',
                     style: const TextStyle(
                       color: Colors.yellow,
                       fontSize: 16,
@@ -444,44 +444,44 @@ class BarChartSample1State extends State<BarChartSample1> {
       ),
       titlesData: FlTitlesData(
         show: true,
-        rightTitles: SideTitles(showTitles: false),
-        topTitles: SideTitles(showTitles: false),
-        bottomTitles: SideTitles(
-          showTitles: true,
-          getTextStyles: (context, value) => const TextStyle(
-              color: Colors.blueGrey,
-              fontWeight: FontWeight.bold,
-              fontSize: 14),
-          margin: 16,
-          getTitles: (double value) {
-            switch (value.toInt()) {
-              case 0:
-                return 'CL';
-              case 1:
-                return 'C';
-              case 2:
-                return 'P';
-              case 3:
-                return 'F';
-              case 4:
-                return 'S';
-              case 5:
-                return 'CH';
-              default:
-                return 'N';
-            }
-          },
-        ),
-        leftTitles: SideTitles(
-          showTitles: false,
-        ),
-      ),
-      borderData: FlBorderData(
-        show: false,
-      ),
-      barGroups: showingGroups(),
-      gridData: FlGridData(show: false),
-    );
+    //     rightTitles: SideTitles(showTitles: false),
+    //     topTitles: SideTitles(showTitles: false),
+    //     bottomTitles: SideTitles(
+    //       showTitles: true,
+    //       getTextStyles: (context, value) => const TextStyle(
+    //           color: Colors.blueGrey,
+    //           fontWeight: FontWeight.bold,
+    //           fontSize: 14),
+    //       margin: 16,
+    //       getTitles: (double value) {
+    //         switch (value.toInt()) {
+    //           case 0:
+    //             return 'CL';
+    //           case 1:
+    //             return 'C';
+    //           case 2:
+    //             return 'P';
+    //           case 3:
+    //             return 'F';
+    //           case 4:
+    //             return 'S';
+    //           case 5:
+    //             return 'CH';
+    //           default:
+    //             return 'N';
+    //         }
+    //       },
+    //     ),
+    //     leftTitles: SideTitles(
+    //       showTitles: false,
+    //     ),
+    //   ),
+    //   borderData: FlBorderData(
+    //     show: false,
+       ),
+       barGroups: showingGroups(),
+       gridData: FlGridData(show: false),
+     );
   }
 
   Future<dynamic> refreshState() async {
